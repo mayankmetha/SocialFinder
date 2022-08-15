@@ -5,28 +5,39 @@
       "platform": "Facebook",
       "url": "https://facebook.com/{username}",
       "method": "GET",
-      "metadata": {}
+      "metadata": []
     },
     {
       "id": 2,
       "platform": "YouTube",
       "url": "https://www.youtube.com/user/{username}",
       "method": "GET",
-      "metadata": {}
+      "metadata": []
     },
     {
       "id": 3,
       "platform": "Twitter",
       "url": "https://nitter.net/{username}",
       "method": "GET",
-      "metadata": {}
+      "metadata": [
+        {
+          "key": "Name",
+          "search": "tag='a',class='profile-card-fullname'",
+          "output": "title"
+        },
+        {
+          "key": "Bio",
+          "search": "tag=div, class='profile-bio'",
+          "output": ""
+        }
+      ]
     },
     {
       "id": 4,
       "platform": "Telegram",
       "url": "https://t.me/{username}",
       "method": "GET",
-      "metadata": {}
+      "metadata": []
     }
   ]
 }
