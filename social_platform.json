@@ -67,7 +67,7 @@
         {
           "key": "Name",
           "prefix": "",
-          "value": "span[dir=auto]",
+          "value": "div[dir=tgme_page_title]",
           "output": ""
         },
         {
