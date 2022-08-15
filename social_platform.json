@@ -6,6 +6,27 @@
       "url": "https://facebook.com/{username}",
       "method": "GET",
       "metadata": {}
+    },
+    {
+      "id": 2,
+      "platform": "YouTube",
+      "url": "https://www.youtube.com/user/{username}",
+      "method": "GET",
+      "metadata": {}
+    },
+    {
+      "id": 3,
+      "platform": "Twitter",
+      "url": "https://nitter.net/{username}",
+      "method": "GET",
+      "metadata": {}
+    },
+    {
+      "id": 4,
+      "platform": "Telegram",
+      "url": "https://t.me/{username}",
+      "method": "GET",
+      "metadata": {}
     }
   ]
 }
