@@ -22,12 +22,38 @@
       "metadata": [
         {
           "key": "Name",
+          "prefix": "",
           "search": "a[class=profile-card-fullname]",
           "output": "title"
         },
         {
           "key": "Bio",
+          "prefix": "",
           "search": "div[class=profile-bio]",
+          "output": ""
+        },
+        {
+          "key": "Member since",
+          "prefix": "",
+          "search": "div[class=profile-joindate]",
+          "output": "title"
+        },
+        {
+          "key": "Site",
+          "prefix": "",
+          "search": "div[class=profile-website]",
+          "output": ""
+        },
+        {
+          "key": "Profile picture",
+          "prefix": "https://nitter.net/",
+          "search": "a[class=profile-card-avatar]",
+          "output": "href"
+        },
+        {
+          "key": "Location",
+          "prefix": "",
+          "search": "div[class=profile-location]",
           "output": ""
         }
       ]
