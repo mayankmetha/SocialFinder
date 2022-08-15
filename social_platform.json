@@ -33,7 +33,7 @@
           "output": ""
         },
         {
-          "key": "Member since",
+          "key": "Member Since",
           "prefix": "",
           "search": "div[class=profile-joindate]",
           "output": "title"
@@ -45,7 +45,7 @@
           "output": ""
         },
         {
-          "key": "Profile picture",
+          "key": "Profile Picture",
           "prefix": "https://nitter.net/",
           "search": "a[class=profile-card-avatar]",
           "output": "href"
@@ -63,7 +63,20 @@
       "platform": "Telegram",
       "url": "https://t.me/{username}",
       "method": "GET",
-      "metadata": []
+      "metadata": [
+        {
+          "key": "Name",
+          "prefix": "",
+          "value": "span[dir=auto]",
+          "output": ""
+        },
+        {
+          "key": "Profile Picture",
+          "prefix": "",
+          "value": "img[class=tgme_page_photo_image]",
+          "output": "src"
+        }
+      ]
     }
   ]
 }
