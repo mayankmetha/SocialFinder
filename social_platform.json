@@ -22,7 +22,7 @@
       "metadata": [
         {
           "key": "Name",
-          "search": "tag='a',class='profile-card-fullname'",
+          "search": "tag='a, class='profile-card-fullname'",
           "output": "title"
         },
         {
