@@ -1,0 +1,11 @@
+{
+  "social_platforms" : [
+    {
+      "id": 1,
+      "platform": "Facebook",
+      "url": "https://facebook.com/{username}",
+      "method": "GET",
+      "metadata": {}
+    }
+  ]
+}
