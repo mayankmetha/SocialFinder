@@ -22,12 +22,12 @@
       "metadata": [
         {
           "key": "Name",
-          "search": "tag='a, class='profile-card-fullname'",
+          "search": "tag=a, class=profile-card-fullname",
           "output": "title"
         },
         {
           "key": "Bio",
-          "search": "tag=div, class='profile-bio'",
+          "search": "tag=div, class=profile-bio",
           "output": ""
         }
       ]
