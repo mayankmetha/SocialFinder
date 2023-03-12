@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name" translatable="false">Social Finder</string>
+    <string name="splashScreen" translatable="false">Social Finder</string>
+    <string name="close_button">Close</string>
+    <string name="view_page">View Page</string>
+    <string name="no_metadata">No metadata</string>
+    <string name="metadata_present">Click to view metadata</string>
+    <string name="user_id">User Name</string>
+
+    <string name="init_next">NEXT</string>
+    <string name="init_skip">SKIP</string>
+    <string name="init_agree">AGREE</string>
+    <string name="init_start">HACK</string>
+    <string name="icon" translatable="false">icon</string>
+
+    <string name="slideTitle1" translatable="false">Social Finder</string>
+    <string name="slideDesc1">Open Source Intelligence based Social Media Account Finder!</string>
+    <string name="slideTitle2">Disclaimer</string>
+    <string name="slideDesc2">User of the app is solely responsible for the damages caused. No other entity can be held liable for the damages done using this app! Practice caution when using the app and do not use this to cause harm to others!</string>
+    <string name="slideTitle3">Privacy Policy</string>
+    <string name="slideDesc3">No Data of any form is collected, used and sold! Some permissions which could raise privacy concerns are only asked for the working of certain features in the app and is not to collect data! Your privacy is respected!</string>
+    <string name="slideTitle4">App Permission</string>
+    <string name="slideDesc4">Please grant app the required permission to work!</string>
+
+    <string name="update_new">New Update Available Version: </string>
+    <string name="update_activity">App Update</string>
+    <string name="update_version">Version</string>
+    <string name="update_changelog">Changelog</string>
+    <string name="update_status">Update Status</string>
+    <string name="update_action">Download and Install Update</string>
+    <string name="update_downloading">Downloading Update</string>
+    <string name="install_update">Applying Update</string>
+    <string name="btn_continue">Continue</string>
+
+    <string name="update">Update</string>
+    <string name="setting">Settings</string>
+
+    <string name="setting_general">General</string>
+    <string name="dark_theme_title">Night Mode</string>
+    <string name="dark_theme_summary">Set dark theme</string>
+    <string name="delete_dep_title">Uninstall App</string>
+    <string name="delete_dep_summary">Clean up and uninstall app.</string>
+
+    <string name="setting_about">Info</string>
+    <string name="setting_developer_title">Developer</string>
+    <string name="setting_developer" translatable="false">Mayank Metha D</string>
+    <string name="settings_version_title">Version</string>
+    <string name="settings_arch_title">Architecture</string>
+    <string name="settings_lic_title">License</string>
+    <string name="settings_lic_desc" translatable="false">GNU GPL v3.0</string>
+
+    <string name="settings_support">Support</string>
+    <string name="settings_git_title">GitHub Issues</string>
+    <string name="settings_git_desc">Click to add issues or feature request.</string>
+    <string name="settings_locale_title">Localization</string>
+    <string name="settings_locale_desc">Contribute to app localization.</string>
+
+    <string name="release">Distribution</string>
+    <string name="releaseGitHub">GitHub Release</string>
+    <string name="releaseTest">Debug Release</string>
+    <string name="releaseOthers">Non Supported Release</string>
+
+    <string name="app_version" translatable="false">%.1f (%d)</string>
+
+</resources>
