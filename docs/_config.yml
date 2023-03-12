@@ -1,4 +1,4 @@
-GNU General Public License v3.0theme: jekyll-theme-hacker
+theme: jekyll-theme-hacker
 markdown: GFM
 relative_links:
   enabled: true
