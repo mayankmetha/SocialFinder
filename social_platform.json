@@ -46,7 +46,7 @@
         },
         {
           "key": "Profile Picture",
-          "prefix": "https://nitter.net/",
+          "prefix": "https://nitter.net",
           "search": "a[class=profile-card-avatar]",
           "output": "href"
         },
