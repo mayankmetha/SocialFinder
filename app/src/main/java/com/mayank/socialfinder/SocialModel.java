@@ -31,7 +31,4 @@ public class SocialModel {
         return details;
     }
 
-    public boolean modelExist(SocialModel tmpModel) {
-        return tmpModel.getUrl().equals(this.url);
-    }
 }

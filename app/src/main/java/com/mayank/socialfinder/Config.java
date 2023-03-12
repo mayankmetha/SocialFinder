@@ -14,10 +14,6 @@ public class Config extends Application {
         editor = sharedPreferences.edit();
     }
 
-    public SharedPreferences getAppSharedPreferences() {
-        return sharedPreferences;
-    }
-
     // dark theme
     public int getDarkMode() {
         return sharedPreferences.getInt(Constants.PREF_SETTINGS_DARK_THEME, 0);
@@ -34,14 +30,5 @@ public class Config extends Application {
 
     public void setInitState(boolean isInitModeEnabled) {
         editor.putBoolean(Constants.PREF_SETTING_INIT, isInitModeEnabled).apply();
-    }
-
-    // update allowed
-    public boolean getUpdateFlag() {
-        return sharedPreferences.getBoolean(Constants.PREF_SETTING_UPDATE, false);
-    }
-
-    public void setUpdateFlag(boolean canUpdate) {
-        editor.putBoolean(Constants.PREF_SETTING_UPDATE, canUpdate).apply();
     }
 }

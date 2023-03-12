@@ -41,7 +41,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     }
 
     private void darkThemeSetting() {
-        final ListPreference themeSwitch = (ListPreference) findPreference(Constants.PREF_KEY_DARK_THEME);
+        final ListPreference themeSwitch = findPreference(Constants.PREF_KEY_DARK_THEME);
         assert themeSwitch != null;
         themeSwitch.setOnPreferenceChangeListener((preference, newValue) -> {
             config.setDarkMode(Integer.parseInt(newValue.toString()));
