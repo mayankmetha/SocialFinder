@@ -5,20 +5,7 @@
       "platform": "Facebook",
       "url": "https://facebook.com/{username}",
       "method": "GET",
-      "metadata": [
-        {
-          "key": "Name",
-          "prefix": "",
-          "search": "h1[class=x1heor9g x1qlqyl8 x1pd3egz x1a2a7pz]",
-          "output": ""
-        },
-        {
-          "key": "Profile Picture",
-          "prefix": "",
-          "search": "svg[data-visualcompletion=ignore-dynamic]",
-          "output": "xlink:href"
-        }
-      ]
+      "metadata": []
     },
     {
       "id": 2,
