@@ -127,7 +127,7 @@
         {
           "key": "Name",
           "prefix": "",
-          "search": "h2[class_=profile-name-bottom]",
+          "search": "h2[class=profile-name-bottom]",
           "output": "string"
         },
         {
