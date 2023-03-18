@@ -128,30 +128,30 @@
           "key": "Name",
           "prefix": "",
           "search": "h2[class=profile-name-bottom]",
-          "output": "string"
+          "output": ""
         },
         {
           "key": "Bio",
           "prefix": "",
           "search": "div[class=profile-description]",
-          "output": "text"
+          "output": ""
         },
         {
           "key": "Followers",
           "prefix": "",
           "search": "span[class=followed_by]",
-          "output": "string"
+          "output": ""
         },
         {
           "key": "Following",
           "prefix": "",
           "search": "span[class=follows]",
-          "output": "string"
+          "output": ""
         },
         {
           "key": "Profile Picture",
           "prefix": "",
-          "search": "div[class=profile-avatar]",
+          "search": "img[class=profile-avatar-image]",
           "output": "src"
         }
       ]
