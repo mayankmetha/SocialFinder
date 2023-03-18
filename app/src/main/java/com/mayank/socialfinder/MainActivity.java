@@ -12,6 +12,7 @@ import android.content.pm.Signature;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +37,8 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.NetworkImageView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textview.MaterialTextView;
 
 import org.json.JSONArray;
@@ -45,6 +48,9 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.security.SecureRandom;
@@ -69,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
     private static final int PERMISSION_REQUEST_NOTIFICATION = 0;
     static double currentVersion;
     static double newVersion;
+
+    String username;
 
     @SuppressLint("PackageManagerGetSignatures")
     private void getReleaseSigningHash() {
@@ -126,17 +134,19 @@ public class MainActivity extends AppCompatActivity {
 
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.POST_NOTIFICATIONS}, PERMISSION_REQUEST_NOTIFICATION);
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.POST_NOTIFICATIONS, Manifest.permission.INSTALL_PACKAGES}, PERMISSION_REQUEST_NOTIFICATION);
             }
         }
 
         getReleaseSigningHash();
         updateInit();
         openSettings();
+        exportList();
 
         sr = new SecureRandom();
 
-        AppCompatEditText username = findViewById(R.id.username_input);
+        AppCompatEditText usernameEditText = findViewById(R.id.username_input);
+        username = "";
         AppCompatButton button = findViewById(R.id.run_btn);
         ListView list = findViewById(R.id.social_list);
         keys = new ArrayList<>();
@@ -174,11 +184,12 @@ public class MainActivity extends AppCompatActivity {
         CURL.getInstance(this).addToRequestQueue(socialRequest);
 
         button.setOnClickListener(view -> {
+            username = String.valueOf(usernameEditText.getText());
             list.removeAllViewsInLayout();
             keys.clear();
             for(int i=0;i< socialPlatforms.length();i++) {
                 try {
-                    runRequest(socialPlatforms.getJSONObject(i), String.valueOf(username.getText()));
+                    runRequest(socialPlatforms.getJSONObject(i), username);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -301,6 +312,37 @@ public class MainActivity extends AppCompatActivity {
 
         builder.setPositiveButton(R.string.close_button, (dialog, which) -> dialog.cancel());
         builder.show();
+    }
+
+    void exportList() {
+        FloatingActionButton export_btn = findViewById(R.id.exportBtn);
+        export_btn.setOnClickListener(v -> {
+            try {
+                if (username.isEmpty())
+                    return;
+                JSONObject exportObject = new JSONObject();
+                exportObject.put("Username",username);
+                for (int i = 0; i < keys.size(); i++) {
+                    SocialModel m = keys.get(i);
+                    JSONObject tmp = new JSONObject();
+                    tmp.put("URL",m.getUrl());
+                    tmp.put("HTTP_Response_Code",m.getStatus());
+                    for (String str: m.getDetails().split("\n")) {
+                        String[] strSplit = str.split(":",2);
+                        if (strSplit.length == 2)
+                            tmp.put(strSplit[0],strSplit[1]);
+                    }
+                    exportObject.put(m.getPlatform(),tmp);
+                }
+                File file = new File(getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS),exportObject.getString("Username")+".json");
+                BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
+                bufferedWriter.write(exportObject.toString(4));
+                bufferedWriter.close();
+                Snackbar.make(findViewById(android.R.id.content), file.getName() +" "+getResources().getString(R.string.file_saved), Snackbar.LENGTH_SHORT).show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     private void preCheckAppUpdate() {

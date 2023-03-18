@@ -6,6 +6,7 @@
     <string name="no_metadata">No metadata</string>
     <string name="metadata_present">Click to view metadata</string>
     <string name="user_id">User Name</string>
+    <string name="file_saved">saved</string>
 
     <string name="init_next">NEXT</string>
     <string name="init_skip">SKIP</string>
