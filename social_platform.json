@@ -77,6 +77,46 @@
           "output": "src"
         }
       ]
+    },
+    {
+      "id": 5,
+      "platform": "Tiktok",
+      "url": "https://www.tiktok.com/@{username}",
+      "method": "GET",
+      "metadata": [
+        {
+          "key": "Name",
+          "prefix": "",
+          "search": "h2[attrs={'data-e2e':'user-bio'}]",
+          "output": "text"
+        },
+        {
+          "key": "Profile Picture",
+          "prefix": "",
+          "search": "img",
+          "output": "src"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "platform": "Tinder",
+      "url": "https://tinder.com/@{username}",
+      "method": "GET",
+      "metadata": [
+        {
+          "key": "Name",
+          "prefix": "",
+          "search": "meta[property=profile:first_name]",
+          "output": "content"
+        },
+        {
+          "key": "Profile Picture",
+          "prefix": "",
+          "search": "meta[property=og:image]",
+          "output": "content"
+        }
+      ]
     }
   ]
 }
