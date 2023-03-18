@@ -133,25 +133,25 @@
         {
           "key": "Bio",
           "prefix": "",
-          "search": "div[class_=profile-description]",
+          "search": "div[class=profile-description]",
           "output": "text"
         },
         {
           "key": "Followers",
           "prefix": "",
-          "search": "span[class_=followed_by]",
+          "search": "span[class=followed_by]",
           "output": "string"
         },
         {
           "key": "Following",
           "prefix": "",
-          "search": "span[class_=follows]",
+          "search": "span[class=follows]",
           "output": "string"
         },
         {
           "key": "Profile Picture",
           "prefix": "",
-          "search": "div[class_=profile-avatar]",
+          "search": "div[class=profile-avatar]",
           "output": "src"
         }
       ]
