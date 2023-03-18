@@ -117,6 +117,44 @@
           "output": "content"
         }
       ]
+    },
+    {
+      "id": 7,
+      "platform": "Instagram",
+      "url": "https://www.picuki.com/profile/{username}",
+      "method": "GET",
+      "metadata": [
+        {
+          "key": "Name",
+          "prefix": "",
+          "search": "h2[class_=profile-name-bottom]",
+          "output": "string"
+        },
+        {
+          "key": "Bio",
+          "prefix": "",
+          "search": "div[class_=profile-description]",
+          "output": "text"
+        },
+        {
+          "key": "Followers",
+          "prefix": "",
+          "search": "span[class_=followed_by]",
+          "output": "string"
+        },
+        {
+          "key": "Following",
+          "prefix": "",
+          "search": "span[class_=follows]",
+          "output": "string"
+        },
+        {
+          "key": "Profile Picture",
+          "prefix": "",
+          "search": "div[class_=profile-avatar]",
+          "output": "src"
+        }
+      ]
     }
   ]
 }
