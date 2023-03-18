@@ -37,7 +37,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         license();
 
         gitIssue();
-        //translate();
+        translate();
     }
 
     private void darkThemeSetting() {
@@ -159,10 +159,10 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         final Preference localePreference = findPreference(Constants.PREF_KEY_LOCALE);
         assert localePreference != null;
         localePreference.setOnPreferenceClickListener(preference -> {
-            //Intent intent = new Intent(getActivity(), BrowserActivity.class);
-            //intent.putExtra(Constants.activityTitle, getResources().getString(R.string.settings_locale_title));
-            //intent.putExtra(Constants.webViewID,Constants.CROWDIN_JOIN);
-            //startActivity(intent);
+            Intent intent = new Intent(getActivity(), BrowserActivity.class);
+            intent.putExtra(Constants.activityTitle, getResources().getString(R.string.settings_locale_title));
+            intent.putExtra(Constants.webViewID,Constants.CROWDIN_JOIN);
+            startActivity(intent);
             return true;
         });
     }
