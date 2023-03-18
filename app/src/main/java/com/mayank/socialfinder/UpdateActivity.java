@@ -131,7 +131,7 @@ public class UpdateActivity extends AppCompatActivity {
     }
 
     private void getChangelog() {
-        String url = Constants.CHANGELOG_RELEASE+MainActivity.newVersion;
+        String url = Constants.CHANGELOG_RELEASE+"_"+MainActivity.newVersion;
         CURL.getInstance(this).getRequestQueue().add(new StringRequest(Request.Method.GET, url, response -> changelog.setText(response.trim()), error -> {}));
     }
 
