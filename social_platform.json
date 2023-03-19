@@ -238,9 +238,42 @@
         },
         {
           "key": "Profile Picture",
-          "prefix": "data",
+          "prefix": "datas",
           "search": "snoovatar_img",
           "output": ""
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "platform": "Soundcloud",
+      "url": "https://soundcloud.com/{username}",
+      "method": "GET",
+      "processing": "html",
+      "metadata": [
+        {
+          "key": "Name",
+          "prefix": "header",
+          "search": "p",
+          "output": ""
+        },
+        {
+          "key": "Locality",
+          "prefix": "",
+          "search": "meta[property=og:locality]",
+          "output": "content"
+        },
+        {
+          "key": "Country",
+          "prefix": "",
+          "search": "meta[property=country-name]",
+          "output": "content"
+        },
+        {
+          "key": "Profile Picture",
+          "prefix": "",
+          "search": "meta[property=twitter:image]",
+          "output": "content"
         }
       ]
     }
