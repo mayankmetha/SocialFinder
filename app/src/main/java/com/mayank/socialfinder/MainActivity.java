@@ -14,7 +14,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Base64;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -253,16 +252,12 @@ public class MainActivity extends AppCompatActivity {
                                         String prefix = obj.getString("prefix");
                                         String search = obj.getString("search");
                                         JSONObject tmp = doc;
-                                        Log.e("JSON Prefix",prefix);
-                                        Log.e("JSON",tmp.toString());
                                         if (!prefix.isEmpty() && prefix.split(",").length > 0) {
                                             String[] path = prefix.split(",");
                                             for (String str: path) {
                                                 tmp = tmp.getJSONObject(str);
-                                                Log.e("JSON",tmp.toString());
                                             }
                                         }
-                                        Log.e("JSON",tmp.get(search).toString());
                                         finalMetadata.append(key).append(":").append(tmp.has(search)?tmp.get(search):"").append("\n");
                                     }
                                 } catch (Exception e) {
