@@ -350,8 +350,8 @@
         {
           "key": "Profile Picture",
           "prefix": "",
-          "search": "link[rel=image_src]",
-          "output": "href"
+          "search": "img[class=profile_flag]",
+          "output": ""
         }
       ]
     }
