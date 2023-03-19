@@ -258,12 +258,6 @@
           "output": "content"
         },
         {
-          "key": "Bio",
-          "prefix": "",
-          "search": "meta[property=og:description]",
-          "output": "content"
-        },
-        {
           "key": "Location",
           "prefix": "",
           "search": "meta[property=og:locality]",
