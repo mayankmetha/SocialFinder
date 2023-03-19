@@ -253,8 +253,8 @@
       "metadata": [
         {
           "key": "Name",
-          "prefix": "div[class=profileHeaderInfo__content sc-media-content]",
-          "search": "h2",
+          "prefix": "",
+          "search": "h1[itemprop=name]",
           "output": ""
         },
         {
