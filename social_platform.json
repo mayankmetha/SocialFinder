@@ -351,7 +351,7 @@
           "key": "Profile Picture",
           "prefix": "",
           "search": "img[class=profile_flag]",
-          "output": ""
+          "output": "nextSibling()"
         }
       ]
     }
