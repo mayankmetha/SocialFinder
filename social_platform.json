@@ -332,7 +332,7 @@
         {
           "key": "Nickname",
           "prefix": "",
-          "search": "span[class=actual_persona_name]",
+          "search": "span[itemprop=actual_persona_name]",
           "output": ""
         },
         {
@@ -342,16 +342,16 @@
           "output": "content"
         },
         {
-          "key": "Profile Picture",
-          "prefix": "",
-          "search": "link[rel=image_src]",
-          "output": "href"
-        },
-        {
           "key": "Location",
           "prefix": "",
-          "search": "div[class=header_real_name ellipsis]",
-          "output": "nextSibling()"
+          "search": "img[class=profile_flag]",
+          "output": "nextElementSibling().text()"
+        },
+        {
+          "key": "Profile Picture",
+          "prefix": "",
+          "search": "meta[property=og:image]",
+          "output": "content"
         }
       ]
     }
