@@ -345,7 +345,7 @@
           "key": "Location",
           "prefix": "",
           "search": "img[class=profile_flag]",
-          "output": "nextElementSibling().text()"
+          "output": "nextSibling()"
         },
         {
           "key": "Profile Picture",
