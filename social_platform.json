@@ -315,6 +315,45 @@
           "output": "content"
         }
       ]
+    },
+    {
+      "id": 13,
+      "platform": "Steam",
+      "url": "https://steamcommunity.com/id/{username}",
+      "method": "GET",
+      "processing": "html",
+      "metadata": [
+        {
+          "key": "Name",
+          "prefix": "",
+          "search": "bdi",
+          "output": ""
+        },
+        {
+          "key": "Nickname",
+          "prefix": "",
+          "search": "span[itemprop=actual_persona_name]",
+          "output": ""
+        },
+        {
+          "key": "Bio",
+          "prefix": "",
+          "search": "meta[property=og:description]",
+          "output": "content"
+        },
+        {
+          "key": "Location",
+          "prefix": "",
+          "search": "img[class=profile_flag]",
+          "output": ""
+        },
+        {
+          "key": "Profile Picture",
+          "prefix": "",
+          "search": "link[rel=image_src]",
+          "output": "href"
+        }
+      ]
     }
   ]
 }
