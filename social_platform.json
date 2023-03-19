@@ -276,12 +276,6 @@
           "output": "content"
         },
         {
-          "key": "Followers",
-          "prefix": "",
-          "search": "meta[soundcloud:follower_count]",
-          "output": "content"
-        },
-        {
           "key": "Profile Picture",
           "prefix": "",
           "search": "meta[property=twitter:image]",
