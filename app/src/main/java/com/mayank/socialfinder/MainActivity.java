@@ -194,6 +194,8 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
+            CURL.getInstance(this).addToRequestQueue(agentRequest);
+            CURL.getInstance(this).addToRequestQueue(socialRequest);
         });
     }
 
@@ -233,9 +235,11 @@ public class MainActivity extends AppCompatActivity {
                                         String search = obj.getString("search");
                                         String output = obj.getString("output");
 
-                                        Element searchOutput = doc.select(search).first();
+                                        Element searchOutput = doc.select(search).get(0);
                                         if(output.isEmpty()) {
                                             finalMetadata.append(key).append(":").append(prefix).append(searchOutput != null ? searchOutput.text() : "").append("\n");
+                                        } else if (output.strip().contains("nextSibling()")) {
+                                            finalMetadata.append(key).append(":").append(prefix).append(searchOutput != null ? Objects.requireNonNull(searchOutput.nextSibling()).toString() : "").append("\n");
                                         } else {
                                             finalMetadata.append(key).append(":").append(prefix).append(searchOutput != null ? searchOutput.attr(output) : "").append("\n");
                                         }
