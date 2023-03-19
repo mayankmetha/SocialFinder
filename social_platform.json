@@ -311,7 +311,7 @@
         {
           "key": "Profile Picture",
           "prefix": "",
-          "search": "meta[property=of:image]",
+          "search": "meta[property=og:image]",
           "output": "content"
         }
       ]
