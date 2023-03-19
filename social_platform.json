@@ -254,14 +254,32 @@
         {
           "key": "Name",
           "prefix": "",
-          "search": "h1[itemprop=name]",
-          "output": ""
+          "search": "meta[property=og:title]",
+          "output": "content"
+        },
+        {
+          "key": "Bio",
+          "prefix": "",
+          "search": "meta[property=og:description]",
+          "output": "content"
         },
         {
           "key": "Location",
-          "prefix": "div[class=profileHeaderInfo__content sc-media-content]",
-          "search": "h3",
-          "output": ""
+          "prefix": "",
+          "search": "meta[property=og:locality]",
+          "output": "content"
+        },
+        {
+          "key": "Country",
+          "prefix": "",
+          "search": "meta[property=og:country-name]",
+          "output": "content"
+        },
+        {
+          "key": "Followers",
+          "prefix": "",
+          "search": "meta[soundcloud:follower_count]",
+          "output": "content"
         },
         {
           "key": "Profile Picture",
