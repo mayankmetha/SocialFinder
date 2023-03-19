@@ -5,6 +5,7 @@
       "platform": "Facebook",
       "url": "https://facebook.com/{username}",
       "method": "GET",
+      "processing": "html",
       "metadata": []
     },
     {
@@ -12,6 +13,7 @@
       "platform": "YouTube",
       "url": "https://www.youtube.com/user/{username}",
       "method": "GET",
+      "processing": "html",
       "metadata": []
     },
     {
@@ -19,6 +21,7 @@
       "platform": "Twitter",
       "url": "https://nitter.net/{username}",
       "method": "GET",
+      "processing": "html",
       "metadata": [
         {
           "key": "Name",
@@ -63,6 +66,7 @@
       "platform": "Telegram",
       "url": "https://t.me/{username}",
       "method": "GET",
+      "processing": "html",
       "metadata": [
         {
           "key": "Name",
@@ -83,6 +87,7 @@
       "platform": "Tiktok",
       "url": "https://www.tiktok.com/@{username}",
       "method": "GET",
+      "processing": "html",
       "metadata": [
         {
           "key": "Name",
@@ -103,6 +108,7 @@
       "platform": "Tinder",
       "url": "https://tinder.com/@{username}",
       "method": "GET",
+      "processing": "html",
       "metadata": [
         {
           "key": "Name",
@@ -123,6 +129,7 @@
       "platform": "Instagram",
       "url": "https://www.picuki.com/profile/{username}",
       "method": "GET",
+      "processing": "html",
       "metadata": [
         {
           "key": "Name",
@@ -153,6 +160,87 @@
           "prefix": "",
           "search": "img[class=profile-avatar-image]",
           "output": "src"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "platform": "Pinterest",
+      "url": "https://pinterest.com/{username}/",
+      "method": "GET",
+      "processing": "html",
+      "metadata": [
+        {
+          "key": "Name",
+          "prefix": "",
+          "search": "h1",
+          "output": ""
+        },
+        {
+          "key": "Bio",
+          "prefix": "",
+          "search": "meta[property=og:description]",
+          "output": "content"
+        },
+        {
+          "key": "Followers",
+          "prefix": "",
+          "search": "meta[property=pinterestapp:followers]",
+          "output": "content"
+        },
+        {
+          "key": "Following",
+          "prefix": "",
+          "search": "meta[property=pinterestapp:following]",
+          "output": "content"
+        },
+        {
+          "key": "Profile Picture",
+          "prefix": "",
+          "search": "img",
+          "output": "src"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "platform": "Snapchat",
+      "url": "https://feelinsonice.appspot.com/web/deeplink/snapcode?username={username}&size=400&type=SVG",
+      "method": "GET",
+      "processing": "html",
+      "metadata": [
+        {
+          "key": "Profile Picture",
+          "prefix": "",
+          "search": "img",
+          "output": "xlink:href"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "platform": "Reddit",
+      "url": "https://www.reddit.com/user/{username}/about.json",
+      "method": "GET",
+      "processing": "json",
+      "metadata": [
+        {
+          "key": "Name",
+          "prefix": "",
+          "search": "title",
+          "output": ""
+        },
+        {
+          "key": "Bio",
+          "prefix": "",
+          "search": "public_description",
+          "output": ""
+        },
+        {
+          "key": "Profile Picture",
+          "prefix": "",
+          "search": "snoovatar_img",
+          "output": ""
         }
       ]
     }
