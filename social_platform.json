@@ -344,14 +344,14 @@
         {
           "key": "Location",
           "prefix": "",
-          "search": "div[class=header_real_name ellipsis]",
-          "output": ""
+          "search": "image[class=profile_flag]",
+          "output": "nextSibling()"
         },
         {
           "key": "Profile Picture",
           "prefix": "",
-          "search": "img[class=profile_flag]",
-          "output": "nextSibling()"
+          "search": "link[rel=image_src]",
+          "output": "href"
         }
       ]
     }
