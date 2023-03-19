@@ -332,7 +332,7 @@
         {
           "key": "Nickname",
           "prefix": "",
-          "search": "span[itemprop=actual_persona_name]",
+          "search": "span[class=actual_persona_name]",
           "output": ""
         },
         {
