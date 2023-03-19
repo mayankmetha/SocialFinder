@@ -342,16 +342,16 @@
           "output": "content"
         },
         {
-          "key": "Location",
-          "prefix": "",
-          "search": "div[class=header_real_name ellipsis]",
-          "output": "nextSibling()"
-        },
-        {
           "key": "Profile Picture",
           "prefix": "",
           "search": "link[rel=image_src]",
           "output": "href"
+        },
+        {
+          "key": "Location",
+          "prefix": "",
+          "search": "div[class=header_real_name ellipsis]",
+          "output": "nextSibling()"
         }
       ]
     }
