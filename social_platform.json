@@ -220,7 +220,7 @@
     {
       "id": 10,
       "platform": "Reddit",
-      "url": "https://www.reddit.com/user/{username}/about.json",
+      "url": "https://reddit.com/user/{username}/about.json",
       "method": "GET",
       "processing": "json",
       "metadata": [
