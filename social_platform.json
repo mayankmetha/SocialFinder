@@ -253,21 +253,15 @@
       "metadata": [
         {
           "key": "Name",
-          "prefix": "header",
-          "search": "p",
+          "prefix": "",
+          "search": "h2[class=profileHeaderInfo__userName]",
           "output": ""
         },
         {
-          "key": "Locality",
+          "key": "Location",
           "prefix": "",
-          "search": "meta[property=og:locality]",
-          "output": "content"
-        },
-        {
-          "key": "Country",
-          "prefix": "",
-          "search": "meta[property=country-name]",
-          "output": "content"
+          "search": "h3[class=profileHeaderInfo__additional]",
+          "output": ""
         },
         {
           "key": "Profile Picture",
