@@ -14,6 +14,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -208,38 +209,66 @@ public class MainActivity extends AppCompatActivity {
 
     void runRequest(JSONObject jsonObject, String username) {
         try{
-            String url = jsonObject.getString("url").replace("{username}",username);
+            String url = jsonObject.getString("url");
             String platform = jsonObject.getString("platform");
             int method;
+            String processing = jsonObject.getString("processing");
             JSONArray metadata = jsonObject.getJSONArray("metadata");
             StringBuilder finalMetadata = new StringBuilder();
             if(jsonObject.getString("method").equalsIgnoreCase("get"))
                 method = Request.Method.GET;
             else
                 method = Request.Method.POST;
-            CURLRequest stringRequest = new CURLRequest(method, url,
+            CURLRequest stringRequest = new CURLRequest(method, url.replace("{username}",username),
                     response -> {
                         if(metadata.length() == 0)
                             finalMetadata.append("");
                         else {
-                            try {
-                                Document doc = Jsoup.parse(CURLRequest.parseToString(response),"utf-8");
-                                for(int i=0;i<metadata.length();i++) {
-                                    JSONObject obj = metadata.getJSONObject(i);
-                                    String key = obj.getString("key");
-                                    String prefix = obj.getString("prefix");
-                                    String search = obj.getString("search");
-                                    String output = obj.getString("output");
+                            if (processing.equalsIgnoreCase("html")) {
+                                try {
+                                    Document doc = Jsoup.parse(CURLRequest.parseToString(response),"utf-8");
+                                    for(int i=0;i<metadata.length();i++) {
+                                        JSONObject obj = metadata.getJSONObject(i);
+                                        String key = obj.getString("key");
+                                        String prefix = obj.getString("prefix");
+                                        String search = obj.getString("search");
+                                        String output = obj.getString("output");
 
-                                    Element searchOutput = doc.select(search).first();
-                                    if(output.isEmpty()) {
-                                        finalMetadata.append(key).append(":").append(prefix).append(searchOutput != null ? searchOutput.text() : "").append("\n");
-                                    } else {
-                                        finalMetadata.append(key).append(":").append(prefix).append(searchOutput != null ? searchOutput.attr(output) : "").append("\n");
+                                        Element searchOutput = doc.select(search).first();
+                                        if(output.isEmpty()) {
+                                            finalMetadata.append(key).append(":").append(prefix).append(searchOutput != null ? searchOutput.text() : "").append("\n");
+                                        } else {
+                                            finalMetadata.append(key).append(":").append(prefix).append(searchOutput != null ? searchOutput.attr(output) : "").append("\n");
+                                        }
                                     }
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                 }
-                            } catch (Exception e) {
-                                e.printStackTrace();
+                            } else if (processing.equalsIgnoreCase("json")) {
+                                try {
+                                    JSONObject doc = new JSONObject(CURLRequest.parseToString(response));
+                                    for(int i=0;i<metadata.length();i++) {
+                                        JSONObject obj = metadata.getJSONObject(i);
+                                        String key = obj.getString("key");
+                                        String prefix = obj.getString("prefix");
+                                        String search = obj.getString("search");
+                                        JSONObject tmp = doc;
+                                        Log.e("JSON Prefix",prefix);
+                                        Log.e("JSON",tmp.toString());
+                                        if (!prefix.isEmpty() && prefix.split(",").length > 0) {
+                                            String[] path = prefix.split(",");
+                                            for (String str: path) {
+                                                tmp = tmp.getJSONObject(str);
+                                                Log.e("JSON",tmp.toString());
+                                            }
+                                        }
+                                        Log.e("JSON",tmp.get(search).toString());
+                                        finalMetadata.append(key).append(":").append(tmp.has(search)?tmp.get(search):"").append("\n");
+                                    }
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+
                             }
                         }
                         String metadataString = finalMetadata.toString().strip();
@@ -306,7 +335,11 @@ public class MainActivity extends AppCompatActivity {
         builder.setNeutralButton(R.string.view_page, (dialog, which) -> {
             Intent intent = new Intent(MainActivity.this, BrowserActivity.class);
             intent.putExtra(Constants.activityTitle, model.getPlatform());
-            intent.putExtra(Constants.webViewID, model.getUrl());
+            if(model.getUrl().endsWith(".json")) {
+                intent.putExtra(Constants.webViewID, model.getUrl().substring(0,model.getUrl().lastIndexOf("}")+1).replace("{username}", username));
+            } else {
+                intent.putExtra(Constants.webViewID, model.getUrl().replace("{username}", username));
+            }
             startActivity(intent);
         });
 
