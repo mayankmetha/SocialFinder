@@ -332,7 +332,7 @@
         {
           "key": "Nickname",
           "prefix": "",
-          "search": "span[itemprop=actual_persona_name]",
+          "search": "span[class=actual_persona_name]",
           "output": ""
         },
         {
@@ -344,7 +344,7 @@
         {
           "key": "Location",
           "prefix": "",
-          "search": "img[class=profile_flag]",
+          "search": "div[class=header_real_name ellipsis]",
           "output": ""
         },
         {
