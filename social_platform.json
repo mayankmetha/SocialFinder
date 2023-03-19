@@ -276,6 +276,45 @@
           "output": "content"
         }
       ]
+    },
+    {
+      "id": 12,
+      "platform": "Github",
+      "url": "https://github.com/{username}",
+      "method": "GET",
+      "processing": "html",
+      "metadata": [
+        {
+          "key": "Name",
+          "prefix": "",
+          "search": "span[itemprop=name]",
+          "output": ""
+        },
+        {
+          "key": "Nickname",
+          "prefix": "",
+          "search": "span[itemprop=additionalName]",
+          "output": ""
+        },
+        {
+          "key": "Site",
+          "prefix": "",
+          "search": "a[rel=nofollow me]",
+          "output": "href"
+        },
+        {
+          "key": "Location",
+          "prefix": "",
+          "search": "span[class=p-label]",
+          "output": ""
+        },
+        {
+          "key": "Profile Picture",
+          "prefix": "",
+          "search": "meta[property=of:image]",
+          "output": "content"
+        }
+      ]
     }
   ]
 }
