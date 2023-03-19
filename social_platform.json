@@ -226,19 +226,19 @@
       "metadata": [
         {
           "key": "Name",
-          "prefix": "",
+          "prefix": "data,subreddit",
           "search": "title",
           "output": ""
         },
         {
           "key": "Bio",
-          "prefix": "",
+          "prefix": "data,subreddit",
           "search": "public_description",
           "output": ""
         },
         {
           "key": "Profile Picture",
-          "prefix": "",
+          "prefix": "data",
           "search": "snoovatar_img",
           "output": ""
         }
