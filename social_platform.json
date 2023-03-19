@@ -344,7 +344,7 @@
         {
           "key": "Location",
           "prefix": "",
-          "search": "image[class=profile_flag]",
+          "search": "div[class=header_real_name ellipsis]",
           "output": "nextSibling()"
         },
         {
