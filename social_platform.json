@@ -253,14 +253,14 @@
       "metadata": [
         {
           "key": "Name",
-          "prefix": "",
-          "search": "h2[class=profileHeaderInfo__userName]",
+          "prefix": "div[class=profileHeaderInfo__content sc-media-content]",
+          "search": "h2",
           "output": ""
         },
         {
           "key": "Location",
-          "prefix": "",
-          "search": "h3[class=profileHeaderInfo__additional]",
+          "prefix": "div[class=profileHeaderInfo__content sc-media-content]",
+          "search": "h3",
           "output": ""
         },
         {
